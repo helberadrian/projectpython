@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template1</title>
+</head>
+<body>
+    <h1>Hola a todos desde el template</h1>
+    <p>Hola {{nombre}} {{apellido}}</p>
+    <p>
+        {% for n in notas %}
+            {% if n > 5 %}
+                <p style="color:green">El estudiante {{nombre}} con la nota {{n}} esta aprobado</p>
+            {% else %}
+                <p style="color:red">El estudiante {{nombre}} con la nota {{n}} esta reprobado</p>
+            {% endif %}
+        {% endfor %}
+    </p>
+</body>
+</html>
