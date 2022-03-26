@@ -27,11 +27,7 @@ def probandoTemplate(request):
     notas = [10,9,8,4,3,5,9]
     diccionario = {"nombre": nom,"apellido": ap,"notas": notas}
     
-    plantilla = loader.get_template("template1.html") #Abrimos el archivo
-    #plantilla = Template(html.read()) #Creamos la plantilla
-    #html.close() #Cerramos el archivo despues de leerlo
-    #contexto = Context(diccionario) #Se guarda el contexto en el caso de que haya parametros
+    plantilla = loader.get_template("template1.html") #Cargamos la plantilla, recuerda colocar la configuración de la ruta de la carpeta de plantillas
     documento = plantilla.render(diccionario) #Se renderiza la plantilla
-
     return HttpResponse(documento)
 
