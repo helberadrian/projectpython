@@ -1,0 +1,25 @@
+{% extends "blog/padre.html" %}
+{% load static %}
+
+{% block contenidoCambia %}
+    <h1 class="titulo">Usuarios</h1>
+
+    {% if miFormulario.errors %}
+        <p style="color: red;">Estan mal los datos, revisar...</p>
+    {% endif %}
+
+    <form class= "formulario" action="" method="POST">{% csrf_token %}
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
+        <input type="submit", value="Enviar">
+    </form>
+    <br><br>
+
+    <form action="/blog/buscar" method="GET">
+        <label for="usuario">Usuario</label>
+        <input type="text" name="usuario" id="usuario">
+        <input type="submit", value="Buscar">
+    </form><br>
+
+{% endblock %}
