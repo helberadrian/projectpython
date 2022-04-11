@@ -3,6 +3,10 @@ from django.shortcuts import render
 from AppCoder.models import Curso
 from AppCoder.forms import Formulario
 
+# Requerimientos de Autenticación
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
+
 # Create your views here.
 def inicio(request):
     return render(request, "AppCoder/index.html")
@@ -44,3 +48,12 @@ def buscar(request):
     else:
         respuesta = "No enviaste datos..."
     return HttpResponse(respuesta)
+
+def login(request):
+    if request.method == "POST":
+        formulario = AuthenticationForm(request, data = request.POST)
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            username = data.get("username")
+            password = data.get("password")
+            

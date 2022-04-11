@@ -1,7 +1,12 @@
+from re import template
 from django.http import HttpResponse
 from django.shortcuts import render
 from blog.forms import formUsuario, formArticulo, formEtiqueta
 from blog.models import Usuario, Articulo, Etiqueta
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 # Create your views here.
 def inicio(request):
@@ -57,3 +62,25 @@ def busquedaUsuario(request):
     else:
         respuesta = "No enviaste datos..."
     return HttpResponse(respuesta)
+
+class leerArticulos(ListView):
+    model = Articulo
+    template_name = "blog/leerArticulos.html"
+
+class detalleArticulos(DetailView):
+    model = Articulo
+    template_name = "blog/detalleArticulos.html"
+
+class crearArticulos(CreateView):
+    model = Articulo
+    success_url = "blog/successArticulos.html"
+    fields = ["titulo", "contenido", "fecha"]
+
+class updateArticulos(UpdateView):
+    model = Articulo
+    success_url = "blog/successArticulos.html"
+    fields = ["titulo", "contenido", "fecha"]
+
+class eliminarArticulos(DeleteView):
+    model = Articulo
+    success_url = "blog/successArticulos.html"

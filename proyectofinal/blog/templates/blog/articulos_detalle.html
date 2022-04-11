@@ -1,0 +1,13 @@
+{% extends "blog/padre.html" %}
+{% load static %}
+
+{% block contenidoCambia %}
+    <h1 class="titulo">Articulos Detallados</h1>
+    <br>
+
+    <p>{{articulo.titulo}}</p><br>
+    <p>{{articulo.contenido}}</p><br>
+    <p>{{articulo.fecha}}</p><br>
+
+    <a href="{% url 'articulos_lista.html' %}">Regresar</a>
+{% endblock %}

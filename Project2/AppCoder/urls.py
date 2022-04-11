@@ -11,4 +11,5 @@ urlpatterns = [
     path("formulario/", views.formulario, name="formulario"),
     path("busquedaCamada/", views.busquedaCamada, name="busquedaCamada"),
     path("buscar/", views.buscar, name="buscar"),
+    path("login/", views.login, name="login"),
 ]

@@ -1,0 +1,16 @@
+{% extends "blog/padre.html" %}
+{% load static %}
+
+{% block contenidoCambia %}
+    <h1 class="titulo">Leer Articulos</h1>
+    <br>
+
+    {% for a in articulos %}
+        <p>{{a}}</p>
+        <button>
+            <a href="{% url 'EliminarArticulo' a.titulo %}">Eliminar</a>
+        </button>
+        <br>
+    {% endfor %}
+    <br>
+{% endblock %}
