@@ -17,9 +17,16 @@
     </div>
     <div class="nav">
       <a href="{% url 'inicio' %}">Inicio</a>
-      <a href="{% url 'articulo' %}">Articulos</a>
-      <a href="{% url 'etiqueta' %}">Etiquetas</a>
-      <a href="{% url 'usuario' %}">Usuarios</a>
+      <a href="{% url 'about' %}">Sobre Mi</a>
+      
+      <!-- Login -->
+      {% if not request.user.is_authenticated %}
+        <a class="btn-iniciar" href="{% url 'login' %}">Login</a>
+      {% endif %}
+      {% if request.user.is_authenticated %}
+        <a class="btn-cerrar" href="{% url 'logout' %}">Cerrar Sesión</a>
+        <p>{{request.user.username}}</p>
+      {% endif %}
     </div>
   </header>
 

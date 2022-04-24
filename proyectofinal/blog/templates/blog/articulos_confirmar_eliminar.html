@@ -2,12 +2,21 @@
 {% load static %}
 
 {% block contenidoCambia %}
-    <h1 class="titulo">Confirmar</h1>
-    <br>
 
-    <form action="" method="POST">{% csrf_token %}
-        ¿Estas seguro que deseas eliminar este articulo?
-        <input type="submit" value="Aceptar">
-    </form>
+<!-- Todo este contenido es de Articulos y se coloca aca mientras, no eliminar -->
+
+<h1 class="titulo">Articulos</h1>
+
+<form class= "formulario" action="" method="POST">{% csrf_token %}
+    <table>
+        {{ miFormulario.as_table }}
+    </table>
+    <input type="submit", value="Enviar">
+</form>
+
+{% if miFormulario.errors %}
+    <p style="color: red;">Estan mal los datos, revisar...</p>
+{% endif %}
+    
 
 {% endblock %}

@@ -2,12 +2,35 @@
 {% load static %}
 
 {% block contenidoCambia %}
-    <h1 class="titulo">Articulos Detallados</h1>
-    <br>
+    <article class="articulo_detalle">
+        <h1 class="titulo">{{articulo.titulo}}</h1>
+        <img src="{{ articulo.imagen.url }}" alt="">
+        <p>{{articulo.contenido}}</p><br>
+        <p>{{articulo.fecha}}</p><br>
 
-    <p>{{articulo.titulo}}</p><br>
-    <p>{{articulo.contenido}}</p><br>
-    <p>{{articulo.fecha}}</p><br>
-
-    <a href="{% url 'articulos_lista.html' %}">Regresar</a>
+        <!-- Opciones -->
+        {% if not request.user.is_authenticated %}
+        <div>
+            <button>
+                <a href="{% url 'inicio' %}">Regresar</a>
+            </button>
+        </div>
+        {% endif %}
+        {% if request.user.is_authenticated %}
+        <div>
+            <button>
+                <a href="{% url 'inicio' %}">Regresar</a>
+            </button>
+            <button>
+                <a href="{% url 'eliminar' a.titulo %}">Eliminar</a>
+            </button>
+            <button>
+                <a href="{% url 'editar' a.titulo %}">Modificar</a>
+            </button>
+            <button>
+                <a href="{% url 'nuevo' a.titulo %}">Crear</a>
+            </button>
+        </div>
+        {% endif %}
+    </article>
 {% endblock %}

@@ -2,6 +2,33 @@
 {% load static %}
 
 {% block contenidoCambia %}
-    <h1 class="titulo">Pagina Principal</h1>
-    <br>
+    {% for a in articulos %}
+        <div class="articulo">
+            <h1>{{a.titulo}}</h1>
+            <img src="{{ a.imagen.url }}" alt="">
+            <p>{{a.resumen}}</p>
+
+            <!-- Opciones -->
+            {% if not request.user.is_authenticated %}
+            <div>
+                <button>
+                    <a href="{% url 'detalle' a.titulo %}">Seguir Leyendo...</a>
+                </button>
+            </div>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+            <div>
+                <button>
+                    <a href="{% url 'detalle' a.titulo %}">Seguir Leyendo...</a>
+                </button>
+                <button>
+                    <a href="{% url 'eliminar' a.titulo %}">Eliminar</a>
+                </button>
+                <button>
+                    <a href="{% url 'editar' a.titulo %}">Modificar</a>
+                </button>
+            </div>
+            {% endif %}
+        </div>
+    {% endfor %}
 {% endblock %}

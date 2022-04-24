@@ -1,0 +1,10 @@
+{% extends "blog/padre.html" %}
+{% load static %}
+
+{% block contenidoCambia %}
+    <h3>Te has deslogueado...</h3><br>
+
+    <button class="btn">
+        <a href="{% url 'inicio' %}">Regresar</a>
+    </button>
+{% endblock %}

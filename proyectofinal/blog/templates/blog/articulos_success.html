@@ -1,0 +1,10 @@
+{% extends "blog/padre.html" %}
+{% load static %}
+
+{% block contenidoCambia %}
+    <h3>La acción se ha realizado con exito...</h3><br>
+
+    <button class="btn">
+        <a href="{% url 'inicio' %}">Regresar</a>
+    </button>
+{% endblock %}

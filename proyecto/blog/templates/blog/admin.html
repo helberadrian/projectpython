@@ -1,0 +1,11 @@
+{% extends "blog/padre.html" %}
+{% load static %}
+
+{% block contenidoCambia %}
+    <div class="btn-admin">
+        <a href="{% url 'nuevo' %}">
+            <img src="{% static 'blog/img/article.png' %}" alt="Crear Articulo">
+            <h3>Crear Articulo</h1>
+        </a>
+    </div>
+{% endblock %}

@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block contenidoCambia %}
-    <h1 class="titulo">Login</h1>
-    <br>
+    <h1 class="titulo">Iniciar Sesión</h1>
 
-    <form action="" method="POST">
+    <form class="formulario" action="" method="POST">
         {% csrf_token %}
 
         {{form.as_p}}
-        <button type="submit">Iniciar Sesión</button>
+        <button class="btn" type="submit">Iniciar Sesión</button>
+        <!-- <a href="">Olvide la contraseña</a> Pendiente -->
     </form>
 {% endblock %}

@@ -1,0 +1,15 @@
+{% extends "blog/padre.html" %}
+{% load static %}
+
+{% block contenidoCambia %}
+    <h1>Editar Usuario</h1>
+    <br>
+
+    <form action="" method="POST">{% csrf_token %}
+        <table>
+            {{miFormulario.as_table}}
+        </table>
+        <input type="submit", value="Enviar">
+    </form>
+
+{% endblock %}

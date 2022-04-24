@@ -1,0 +1,13 @@
+{% extends "blog/padre.html" %}
+{% load static %}
+
+{% block contenidoCambia %}
+    <div class="sobremi">
+        <h1 class="titulo">SOBRE MI</h1>
+        <p>Sobre mi...</p>
+
+        <button>
+            <a href="{% url 'inicio' %}">Regresar</a>
+        </button>
+    </div>
+{% endblock %}

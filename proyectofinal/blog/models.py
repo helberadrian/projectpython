@@ -13,14 +13,16 @@ class Usuario(models.Model):
 
 class Articulo(models.Model):
     titulo = models.CharField(max_length=300)
-    contenido = models.CharField(max_length=20000)
+    contenido = models.CharField(max_length=200000)
     fecha = models.DateField()
+    imagen = models.CharField(max_length=3000)
+    resumen = models.CharField(max_length=20000)
 
     def __str__(self) -> str:
-        return f"Titulo: {self.titulo}, Contenido: {self.contenido}, Fecha: {self.fecha}"
+        return f"Titulo: {self.titulo}, Contenido: {self.contenido}, Fecha: {self.fecha}, Imagen: {self.imagen}"
 
 class Etiqueta(models.Model):
-    nombre = models.CharField(max_length=40)
-    
+    nombre = models.CharField(max_length=50)
+
     def __str__(self) -> str:
         return f"Nombre: {self.nombre}"
